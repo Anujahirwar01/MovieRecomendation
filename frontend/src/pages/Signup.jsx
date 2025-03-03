@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import axios from 'axios'
+import { UserDataContext } from '../context/userContext'
 
 const Signup = () => {
     const [firstName, setFirstName] = useState('')
@@ -9,16 +13,30 @@ const Signup = () => {
     const [password, setPassword] = useState('')
     const [userData, setUserData] = useState({})
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate()
+
+    const {user,setUser} = useContext(UserDataContext);
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        setUserData({
-            username:{
-            firstName: firstName,
-            lastName: lastName,
-            },
-            email: email,
-            password: password
-        })
+        const userData = {
+            fullname:{
+                firstName: firstName,
+                lastName: lastName,
+                },
+                email: email,
+                password: password
+        }
+
+        const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, userData)
+        if(response.status === 201){
+            const data = response.data
+            // console.log(data)
+            setUser(data.user)
+            navigate('/main')
+        }
+
         console.log(userData)
         setFirstName('')
         setLastName('')
@@ -57,9 +75,9 @@ const Signup = () => {
                 className='bg-[#eeeeee] mb-7 rounded px-4 py-2 border w-full text-lg'
                  type="password" placeholder="Password" />
 
-                    <button className='w-full bg-red-700 text-white py-2 px-4 text-lg rounded-lg'>Login</button>
+                    <Link to='/main' className='w-full bg-red-700 ml-21 text-white py-2 px-4 text-lg rounded-lg'>Create Account</Link>
 
-                    <p className='text-white ml-11 mt-4'>Already Acoount?<Link to='/login' className='text-blue-400'>Login Here</Link></p>
+                    <p className='text-white ml-20 mt-4'>Already Ac?<Link to='/login' className='text-blue-400'>Login Here</Link></p>
 
             </form>
         </div>
