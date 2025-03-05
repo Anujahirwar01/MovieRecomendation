@@ -34,6 +34,7 @@ const Signup = () => {
             const data = response.data
             // console.log(data)
             setUser(data.user)
+            // localStorage.setItem('user', JSON.stringify(data.user))
             navigate('/main')
         }
 
