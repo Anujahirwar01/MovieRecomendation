@@ -11,10 +11,7 @@ const UserProtectedWrapper = ({ children }) => {
             navigate('/login')
         }}, [token])
         const dest = localStorage.getItem('dest');
-        if(dest){
-            localStorage.removeItem('dest');
-            navigate(dest);
-        }
+        
     return(
         <>{children}</>
     );
