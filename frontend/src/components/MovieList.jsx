@@ -15,7 +15,7 @@ export default function MovieList({ movies, search, addToWatchlist }) {
                 backgroundImage: `url(${movie.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "300px", // Adjust height as needed
+                height: "300px",
               }}
             >
               {/* Overlay for better readability */}
