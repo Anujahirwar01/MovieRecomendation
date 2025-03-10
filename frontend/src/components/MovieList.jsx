@@ -18,7 +18,7 @@ export default function MovieList({ movies, search, addToWatchlist }) {
                 height: "300px",
               }}
             >
-              
+              {/* jdd */}
               <div className="bg-black bg-opacity-60 h-full p-4 flex flex-col justify-end">
                 <h2 className="text-xl font-semibold">{movie.title}</h2>
                 <p className="text-gray-300">{movie.year}</p>
