@@ -6,6 +6,8 @@ import Signup from "./pages/Signup";
 import Main from "./pages/Main";
 import UserProtectedWrapper from "./pages/UserProtectedWrapper";
 import Logout from "./pages/Logout";
+import Profile from "./pages/Profile";
+import WatchList from "./pages/WatchList";
 
 const App = () => {
   return <div>
@@ -19,7 +21,8 @@ const App = () => {
         </UserProtectedWrapper>
         } />
       <Route path='/user/logout' element={<Logout />} />
-      
+      <Route path='/profile' element={<Profile/>}/>
+      <Route path='/watchlist' element={<WatchList/>}/>
     </Routes>
     </div>;
 };

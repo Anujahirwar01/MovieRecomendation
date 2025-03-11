@@ -2,6 +2,7 @@ import { useState } from "react";
 // import User from "../components/User";
 import MovieList from "../components/MovieList";
 import Watchlist from "../components/WatchList";
+import { Link } from "react-router-dom";
 
 const movies = [
     {
@@ -23,8 +24,6 @@ const movies = [
       image: "https://m.media-amazon.com/images/I/51EbJvlMRDL._AC_UF894,1000_QL80_.jpg",
     },
   ];
-  
-
 
 export default function MovieApp() {
   const [search, setSearch] = useState("");
@@ -39,9 +38,12 @@ export default function MovieApp() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Movie Recommender</h1>
-        {/* <User className="w-8 h-8 cursor-pointer" /> */}
+      <h1 className="text-3xl font-bold text-center mb-6">Movie Recommender</h1>
+
+      {/* Profile and Watchlist Links */}
+      <div className="flex justify-end gap-4 mb-6">
+        <Link to='/profile' className="bg-blue-500 text-white px-4 py-2 rounded">Profile</Link>
+        <Link to='/watchlist' className="bg-green-500 text-white px-4 py-2 rounded">Watchlist</Link>
       </div>
       
       {/* Search Bar */}
