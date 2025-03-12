@@ -9,7 +9,7 @@ export default function MovieList({ movies, search, addToWatchlist }) {
         {/* Movie List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {movies
-            .filter((m) => m.title.toLowerCase().includes(search.toLowerCase()))
+            // .filter((m) => m.title.toLowerCase().includes(search.toLowerCase()))
             .map((movie) => (
               <div
                 key={movie.id}

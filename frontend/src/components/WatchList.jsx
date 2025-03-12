@@ -1,7 +1,7 @@
 export default function Watchlist({ watchlist }) {
     return (
       <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">Watchlist</h2>
+        <h2 className="text-2xl bg-blue-500 text-center rounded w-1/2 font-bold mb-4">Watchlist</h2>
         {watchlist.length > 0 ? (
           <ul className="list-disc list-inside text-gray-300">
             {watchlist.map((movie) => (

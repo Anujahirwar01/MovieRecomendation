@@ -54,14 +54,14 @@ export default function MovieApp() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button className="bg-blue-600">Search</button>
+        <button className="bg-blue-600 rounded">Search</button>
       </div>
       
       {/* Movie List */}
       <MovieList movies={movies} search={search} addToWatchlist={addToWatchlist} />
       
       {/* Watchlist */}
-      <Watchlist watchlist={watchlist} />
+      {/* <Watchlist watchlist={watchlist} /> */}
     </div>
   );
 }
