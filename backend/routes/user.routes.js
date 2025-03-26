@@ -6,8 +6,9 @@ const { body } = require('express-validator'); // Import the body method from ex
 const authMiddleware = require('../middlewares/auth.middleware'); // Import the auth middleware
 
 router.post('/register', [
-  body('fullname.firstname').isLength({ min: 3 }).withMessage('First name must be at least 3 characters long'),
   body('email').isEmail().withMessage('Invalid email address'),
+
+  body('fullname.firstname').isLength({ min: 3 }).withMessage('First name must be at least 3 characters long'),
   body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
 ]
 , userController.registerUser); // Create a new user
